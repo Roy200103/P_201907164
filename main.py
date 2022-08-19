@@ -1,6 +1,15 @@
-objeto = open('DocP.LFP.txt','r+')
-# Lee todas lineas, linea por linea
-print("READLINES")
-print(objeto.readlines())
-# Cerramos el archivo
-objeto.close()
+from Curs import CRUD_Cursos
+
+#from Curs import Curso
+crudCursos = CRUD_Cursos()
+
+
+
+
+#rut = input('ingrese ruta: ')
+ca = crudCursos.leerCursos('Archivo de Prueba.LFP')
+
+for curso in ca:
+    print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getObligatorio())
+
+
