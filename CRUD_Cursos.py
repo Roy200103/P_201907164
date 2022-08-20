@@ -73,3 +73,59 @@ class Crud_Cursos:
                 self.cursos.pop(i)
                 break
         return self.cursos
+    
+    def listarCursos(self):
+        return self.cursos
+
+    def conteoCA(self, op):
+        #conteo de creditos de cursos aprobados
+        if op == 1:
+            cont = 0
+            for i in range(len(self.cursos)):
+                if self.cursos[i].getEstado() == '0':
+                    cont += int(self.cursos[i].getCreditos()) 
+            print(cont)
+        elif op == 2:
+            cont2 = 0
+            for i in range(len(self.cursos)):
+                if self.cursos[i].getEstado() == '1':
+                    cont2 += int(self.cursos[i].getCreditos()) 
+            print(cont2)
+        elif op == 3:
+            cont3 = 0
+            for i in range(len(self.cursos)):
+                if self.cursos[i].getEstado() == '-1' and self.cursos[i].getObligatorio() == '1':
+                    cont3 += int(self.cursos[i].getCreditos()) 
+            print(cont3)
+
+    def conteoCAS(self, ns):
+        nosemestre = []
+        contadorc = 0
+        for j in range(len(self.cursos)):
+            nosemestre.append(int(self.cursos[j].getSemestre()))
+        maximoV = max(nosemestre)
+        print(maximoV)
+        if int(ns) <= maximoV:  
+            for i in range(len(self.cursos)):
+                if int(self.cursos[i].getSemestre()) <= int(ns) and  int(self.cursos[i].getObligatorio()) == 1:
+                    contadorc += int(self.cursos[i].getCreditos())
+            print(contadorc)
+        elif int(ns) > maximoV:
+            print('No se ha cursado hasta el semestre: ' + str(ns))
+    
+    def creditosSem(self, sem):
+        
+        cont1 = 0
+        cont2 = 0
+        cont3 = 0
+        
+        for j in range(len(self.cursos)):
+            if int(sem) == int(self.cursos[j].getSemestre()) and int(self.cursos[j].getEstado()) == 0:  
+                cont1 += int(self.cursos[j].getCreditos())
+            if int(sem) == int(self.cursos[j].getSemestre()) and int(self.cursos[j].getEstado()) == 1:
+                cont2 += int(self.cursos[j].getCreditos())
+            if int(sem) == int(self.cursos[j].getSemestre()) and int(self.cursos[j].getEstado()) == -1:
+                cont3 += int(self.cursos[j].getCreditos())
+        print('Creditos aprobados: ' + str(cont1) )
+        print('Creditos asignados: ' + str(cont2) )
+        print('Creditos pendientes: ' + str(cont3) )        

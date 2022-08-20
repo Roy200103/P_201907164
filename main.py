@@ -1,6 +1,6 @@
 
-from ast import match_case
 from CRUD_Cursos import Crud_Cursos
+
 #from Curs import Curso
 crudCursos = Crud_Cursos()
 
@@ -26,4 +26,16 @@ mc = crudCursos.mostrarCurso('147')
 print('--------------------------------------------------------------------------------------------')
 elc = crudCursos.eliminarCurso('147')
 for curso in elc:
-    print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getPrerrequisito() , ' ', curso.getObligatorio())
+    print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getPrerrequisito() , ' ', curso.getObligatorio() , ' ', curso.getSemestre() , ' ', curso.getCreditos(), ' ', curso.getEstado())
+print('-------------------------------------------------------------')
+cca = crudCursos.conteoCA(3)
+liscur = crudCursos.listarCursos()
+print('--------------------------------------------------------------------------')
+ccsn = crudCursos.conteoCAS(5)
+print('-------------------------------------------------------------------------')
+ccs = crudCursos.creditosSem(5)
+
+#for curso in liscur:
+ #   print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getPrerrequisito() , ' ', curso.getObligatorio())
+
+#ñprint(len(liscur))
