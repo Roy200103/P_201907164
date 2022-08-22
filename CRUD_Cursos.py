@@ -45,6 +45,7 @@ class Crud_Cursos:
          
         nuevoCurso = Cursp(acodigo, anombre, aprerrequisito, aobligatorio, asemestre, acreditos, aestado)
         self.cursos.append(nuevoCurso)
+        print('Curso Agregado')
 
         return self.cursos
     
@@ -75,6 +76,8 @@ class Crud_Cursos:
         return self.cursos
     
     def listarCursos(self):
+        for i in range(len(self.cursos)):
+            print(self.cursos[i].getCodigo(),' ', self.cursos[i].getNombre(), ' ', self.cursos[i].getPrerrequisito() , ' ', self.cursos[i].getObligatorio() , ' ', self.cursos[i].getSemestre() , ' ', self.cursos[i].getCreditos(), ' ', self.cursos[i].getEstado())
         return self.cursos
 
     def conteoCA(self, op):

@@ -1,8 +1,12 @@
-
 from CRUD_Cursos import Crud_Cursos
-
+from InterfazC import *
 #from Curs import Curso
 crudCursos = Crud_Cursos()
+px = VentPrin()
+
+#cargaA = CarA()
+
+
 
 
 
@@ -28,12 +32,17 @@ elc = crudCursos.eliminarCurso('147')
 for curso in elc:
     print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getPrerrequisito() , ' ', curso.getObligatorio() , ' ', curso.getSemestre() , ' ', curso.getCreditos(), ' ', curso.getEstado())
 print('-------------------------------------------------------------')
-cca = crudCursos.conteoCA(3)
+#cca = crudCursos.conteoCA(3)
+
 liscur = crudCursos.listarCursos()
+
+for curso in liscur:
+    print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getPrerrequisito() , ' ', curso.getObligatorio() , ' ', curso.getSemestre() , ' ', curso.getCreditos(), ' ', curso.getEstado())
+
 print('--------------------------------------------------------------------------')
-ccsn = crudCursos.conteoCAS(5)
+#ccsn = crudCursos.conteoCAS(5)
 print('-------------------------------------------------------------------------')
-ccs = crudCursos.creditosSem(5)
+#ccs = crudCursos.creditosSem(5)
 
 #for curso in liscur:
  #   print(curso.getCodigo(),' ', curso.getNombre(), ' ', curso.getPrerrequisito() , ' ', curso.getObligatorio())
